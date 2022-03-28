@@ -42,6 +42,10 @@ const getLocalFileDetails = ({
                           )
                     : filePath
 
+                if (!normalizedFilePath.length) {
+                    throw new Error(`normalizing "${filePath}" resulted in an empty filepath`)
+                }
+
                 if (size) {
                     fileDetails[normalizedFilePath] = {
                         maxSize,
